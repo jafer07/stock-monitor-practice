@@ -2,6 +2,9 @@ micronaut:
   application:
     name: stock-monitor-practice
 
+test-resources:
+  enabled: false
+
 datasources:
   default:
     url: jdbc:mysql://localhost:3306/stockdb
