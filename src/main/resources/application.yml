@@ -1,0 +1,18 @@
+micronaut:
+  application:
+    name: stock-monitor-practice
+
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/stockdb
+    username: user
+    password: password
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
