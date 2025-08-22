@@ -1,9 +1,9 @@
 micronaut:
   application:
     name: stock-monitor-practice
-
-test-resources:
-  enabled: false
+  test:
+    resources:
+      enabled: false
 
 datasources:
   default:
@@ -14,8 +14,16 @@ datasources:
 
 jpa:
   default:
+    entity-scan:
+      packages:
+        - com.stock.entities
     properties:
       hibernate:
         hbm2ddl:
           auto: update
         show_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
