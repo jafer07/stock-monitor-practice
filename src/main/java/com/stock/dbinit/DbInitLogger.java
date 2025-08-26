@@ -1,6 +1,6 @@
 package com.stock.dbinit;
 
-import com.stock.repositories.StockPriceRepository;
+import com.stock.infrastructure.repositories.StockPriceRepository;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Singleton;

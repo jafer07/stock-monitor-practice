@@ -16,7 +16,7 @@ jpa:
   default:
     entity-scan:
       packages:
-        - com.stock.entities
+        - com.stock.domain.entities
     properties:
       hibernate:
         hbm2ddl:

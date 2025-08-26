@@ -1,4 +1,4 @@
-package com.stock;
+package com.stock.business;
 
 import io.micronaut.runtime.Micronaut;
 

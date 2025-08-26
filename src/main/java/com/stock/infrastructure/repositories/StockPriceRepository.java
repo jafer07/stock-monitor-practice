@@ -1,6 +1,6 @@
-package com.stock.repositories;
+package com.stock.infrastructure.repositories;
 
-import com.stock.entities.StockPrice;
+import com.stock.domain.entities.StockPrice;
 
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.jpa.repository.JpaRepository;

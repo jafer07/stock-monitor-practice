@@ -1,18 +1,23 @@
-package com.stock.entities;
+package com.stock.domain.entities;
 
 import java.math.BigDecimal;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class StockPrice {
 
     @Id
+    @NotBlank
     private String symbol;
 
+    @NotNull
     private BigDecimal price;
 
+    @NotNull
     private BigDecimal threshold;
 
     public StockPrice() {}

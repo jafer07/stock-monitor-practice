@@ -1,11 +1,11 @@
-package com.stock.service;
+package com.stock.business.services;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 
-import com.stock.entities.StockPrice;
-import com.stock.repositories.StockPriceRepository;
+import com.stock.domain.entities.StockPrice;
+import com.stock.infrastructure.repositories.StockPriceRepository;
 
 import io.micronaut.scheduling.annotation.Scheduled;
 import jakarta.inject.Inject;
