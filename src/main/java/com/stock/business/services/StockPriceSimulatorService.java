@@ -5,7 +5,9 @@ import java.math.RoundingMode;
 import java.util.List;
 
 import com.stock.domain.entities.StockPrice;
+import com.stock.infrastructure.dtos.StockPriceResponseDTO;
 import com.stock.infrastructure.repositories.StockPriceRepository;
+import com.stock.infrastructure.websocket.StockWebSocket;
 
 import io.micronaut.scheduling.annotation.Scheduled;
 import jakarta.inject.Inject;
@@ -16,6 +18,8 @@ public class StockPriceSimulatorService {
 
     @Inject
     private StockPriceRepository stockPriceRepository;
+    @Inject
+    private StockWebSocket stockWebSocket;
 
     @Scheduled(fixedDelay = "2s", initialDelay = "1s")
     public void updatePrices(){
@@ -24,6 +28,17 @@ public class StockPriceSimulatorService {
             BigDecimal newPrice = simulatePriceChange(stockPrice.getPrice());
             stockPrice.setPrice(newPrice);
             stockPriceRepository.update(stockPrice);
+
+            boolean alert = stockPrice.getPrice().compareTo(stockPrice.getThreshold()) <= 0;
+
+            StockPriceResponseDTO dto = new StockPriceResponseDTO(
+                    stockPrice.getSymbol(),
+                    stockPrice.getPrice(),
+                    stockPrice.getThreshold(),
+                    alert
+            );
+
+            stockWebSocket.sendStockUpdate(dto);
         }
 
     }

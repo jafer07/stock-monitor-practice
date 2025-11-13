@@ -38,4 +38,13 @@ public class StockPriceResponseDTO {
         return alert;
     }
 
+    @Override
+    public String toString() {
+        return "StockPriceResponseDTO{" +
+                "symbol='" + symbol + '\'' +
+                ", price=" + price +
+                ", threshold=" + threshold +
+                ", alert=" + alert +
+                '}';
+    }
 }
